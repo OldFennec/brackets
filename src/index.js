@@ -1,10 +1,15 @@
 module.exports = function check(str, bracketsConfig) {
 
+	// bracketsConfig length = nb = n bracket
 	const nb = bracketsConfig.length;
-	let trueOrFalce = 0;
 
-	const strM = str.split('');
-	const nstr = strM.length;
+
+	// strM length = nstr 
+	// strM = str->array
+	const strA = str.split('');
+	const nstr = strA.length;
+
+	let trueOrFalse = 0;
 
 
   for ( let i = 0; i < nb; i++) {
@@ -16,33 +21,33 @@ module.exports = function check(str, bracketsConfig) {
   	let ob= brackets[0];
   	let cb = brackets[1];
 
- 	// openBracketCount=obc closetBracketCount=cbc
+ 	// openBracketCount=obc closeBracketCount=cbc
 	let obc = 0;
 	let cbc = 0;
 
   	for ( let j = 0; j < nstr; j++ ) {
-  		if ( strM[j] == ob ) {
+  		if ( strA[j] == ob ) {
   			obc += 1;
   		};
-		if ( strM[j] == cb ) {
+		if ( strA[j] == cb ) {
   			cbc += 1;
   		};
-  		if (cbc> obc) {
-  			trueOrFalce = false;
+  		if (cbc > obc) {
+  			trueOrFalse = false;
   			break;
-  		}
+  		};
   	}; 
 
   	if ( (obc == cbc) && (cbc != 0) && (obc != 0) ) {
-  		trueOrFalce = true;
+  		trueOrFalse = true;
   	} else {
-  		trueOrFalce = false;
+  		trueOrFalse = false;
   		break;
   	};
 
   };
 
-  return (trueOrFalce);
+  return (trueOrFalse);
 }
 
 
